@@ -1,0 +1,26 @@
+<div class="card my-5">
+    <div class="card-body">
+      <button routerLink="/orderings/add" class="btn btn-info" style="width: 100%;">Add ordering</button>
+      <br><br>
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Description</th>
+            <th scope="col">Start date</th>
+            <th scope="col">End date</th>
+            <th scope="col"> </th>
+            <th scope="col"> </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ordering of orderings">
+            <td>{{ ordering.description }}</td>
+            <td>{{ ordering.startDate }}</td>
+            <td>{{ ordering.endDate }}</td>
+            <td><button routerLink="/orderings/{{ordering.id}}" class="btn btn-info" style="width: 100%;">Edit</button></td>
+            <td><button (click)="delete(ordering.id)" class="btn btn-danger" style="width: 100%;">Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
