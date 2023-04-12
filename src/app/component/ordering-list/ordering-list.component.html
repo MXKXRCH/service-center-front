@@ -18,7 +18,7 @@
             <td>{{ ordering.startDate }}</td>
             <td>{{ ordering.endDate }}</td>
             <td><button routerLink="/orderings/{{ordering.id}}" class="btn btn-info" style="width: 100%;">Edit</button></td>
-            <td><button (click)="delete(ordering.id)" class="btn btn-danger" style="width: 100%;">Delete</button></td>
+            <td><button (click)="delete(ordering)" class="btn btn-danger" style="width: 100%;">Delete</button></td>
           </tr>
         </tbody>
       </table>

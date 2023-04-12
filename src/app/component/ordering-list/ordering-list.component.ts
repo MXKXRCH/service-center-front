@@ -13,9 +13,9 @@ export class OrderingListComponent implements OnInit {
   constructor(private service: OrderingService) {
   }
 
-  delete(id : number) {
-    this.service.delete(id).subscribe();
-    this.orderings.splice(this.orderings.indexOf(this.orderings[id]), 1);
+  delete(ordering: Ordering) {
+    this.service.delete(ordering.id).subscribe();
+    this.orderings.splice(this.orderings.indexOf(ordering), 1);
   }
 
   ngOnInit() {
