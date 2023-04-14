@@ -1,0 +1,73 @@
+<div class="card my-5">
+    <div class="card-body">
+      <br>
+      <h1>
+        Add/Edit employee
+      </h1>
+      <form>
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" class="form-control" [(ngModel)]="employee.name">
+        </div>
+        <ul class="text-left list-inline py-3">
+            <li class="list-inline-item" style="width: 49%">
+                <div class="form-group">
+                    <label>Phone</label>
+                    <input type="number" class="form-control" [(ngModel)]="employee.phone">
+                </div>
+            </li>
+            <li class="list-inline-item" style="width: 49%">
+                <div class="form-group">
+                <label>Email address</label>
+                <input type="email" class="form-control" [(ngModel)]="employee.email">
+                </div>
+            </li>
+            <li class="list-inline-item" style="width: 49%">
+                <div class="form-group">
+                    <label>Experience</label>
+                    <input type="number" class="form-control" [(ngModel)]="employee.experience">
+                </div>
+            </li>
+            <li class="list-inline-item" style="width: 49%">
+                <div class="form-group">
+                    <label>Salary</label>
+                    <input type="number" class="form-control" [(ngModel)]="employee.salary">
+                  </div>
+            </li>
+        </ul>
+        <button (click)="addEmployee()" class="btn btn-primary" style="width: 100%;">Submit</button>
+        <br><br>
+        <button (click)="clearForm()" class="btn btn-secondary" style="width: 100%;">Clear</button>
+      </form>
+      <br>
+      <h1>
+        All employees
+      </h1>
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Email</th>
+            <th scope="col"> </th>
+            <th scope="col"> </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let emp of employees">
+            <td>
+                <input type="text" [(ngModel)]="emp.name">
+            </td>
+            <td>
+                <input type="text" [(ngModel)]="emp.phone">
+            </td>
+            <td>
+                <input type="text" [(ngModel)]="emp.email">
+            </td>
+            <td><button (click)="editEmployee(emp)" class="btn btn-info" style="width: 100%;">Edit</button></td>
+            <td><button (click)="delete(emp)" class="btn btn-danger" style="width: 100%;">Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

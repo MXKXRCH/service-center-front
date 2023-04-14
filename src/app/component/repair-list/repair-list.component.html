@@ -1,0 +1,52 @@
+<div class="card my-5">
+    <div class="card-body">
+      <br>
+      <h1>
+        Add repair
+      </h1>
+      <form>
+        <ul class="text-left list-inline py-3">
+            <li class="list-inline-item" style="width: 50%">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" class="form-control" [(ngModel)]="repair.name">
+                </div>
+            </li>
+            <li class="list-inline-item" style="width: 49%">
+                <div class="form-group">
+                <label>Price</label>
+                <input type="number" class="form-control" [(ngModel)]="repair.price">
+                </div>
+            </li>
+        </ul>
+        <button (click)="addRepair()" class="btn btn-primary" style="width: 100%;">Add</button>
+        <br>
+      </form>
+      <br>
+      <h1>
+        All repairs
+      </h1>
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col"> </th>
+            <th scope="col"> </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let rep of repairs">
+            <td>
+                <input type="text" [(ngModel)]="rep.name">
+            </td>
+            <td>
+                <input type="text" [(ngModel)]="rep.price">
+            </td>
+            <td><button (click)="updateRepair(rep)" class="btn btn-info" style="width: 100%;">Edit</button></td>
+            <td><button (click)="delete(rep)" class="btn btn-danger" style="width: 100%;">Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

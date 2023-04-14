@@ -1,6 +1,6 @@
 <div class="card my-5">
     <div class="card-body">
-      <button routerLink="/orderings/add" class="btn btn-info" style="width: 100%;">Add ordering</button>
+      <button routerLink="/orderings/add" class="btn btn-primary" style="width: 100%;">Add ordering</button>
       <br><br>
       <table class="table table-bordered table-striped">
         <thead class="thead-dark">
@@ -17,7 +17,7 @@
             <td>{{ ordering.description }}</td>
             <td>{{ ordering.startDate }}</td>
             <td>{{ ordering.endDate }}</td>
-            <td><button routerLink="/orderings/{{ordering.id}}" class="btn btn-info" style="width: 100%;">Edit</button></td>
+            <td><button routerLink="/orderings/" + {{ordering.id}} class="btn btn-info" style="width: 100%;">Edit</button></td>
             <td><button (click)="delete(ordering)" class="btn btn-danger" style="width: 100%;">Delete</button></td>
           </tr>
         </tbody>

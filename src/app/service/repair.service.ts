@@ -17,4 +17,12 @@ export class RepairService {
   public findAll(): Observable<Repair[]> {
     return this.http.get<Repair[]>(this.url + "/all");
   }
+
+  public post(repair: Repair) {
+    return this.http.post<Repair>(this.url, repair);
+  }
+
+  public delete(id : number) {
+    return this.http.delete(this.url + "/" + id);
+  }
 }

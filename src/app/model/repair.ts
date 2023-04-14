@@ -1,5 +1,5 @@
 export class Repair {
-    id! : Number;
+    id! : number;
     name! : string;
     price! : number;
 }

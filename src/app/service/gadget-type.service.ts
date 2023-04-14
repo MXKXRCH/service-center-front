@@ -1,25 +1,25 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Gadget } from '../model/gadget';
+import { GadgetType } from '../model/gadget-type';
 import { environment } from 'src/environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
 })
-export class GadgetService {
+export class GadgetTypeService {
   private url! : string;
 
   constructor(private http: HttpClient) {
-    this.url = environment.apiUrl + 'gadget';
+    this.url = environment.apiUrl + 'gadgetType';
   }
  
-  public findAll(): Observable<Gadget[]> {
-    return this.http.get<Gadget[]>(this.url + "/all");
+  public findAll(): Observable<GadgetType[]> {
+    return this.http.get<GadgetType[]>(this.url + "/all");
   }
 
-  public post(gadget: Gadget) {
-    return this.http.post<Gadget>(this.url, gadget);
+  public post(gadgetType: GadgetType) {
+    return this.http.post<GadgetType>(this.url, gadgetType);
   }
 
   public delete(id : number) {

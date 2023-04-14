@@ -1,0 +1,39 @@
+<div class="card my-5">
+    <div class="card-body">
+      <br>
+      <h1>
+        Add gadget
+      </h1>
+      <form>
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" class="form-control" [(ngModel)]="gadgetType.name">
+        </div>
+        <button (click)="addGadgetType()" class="btn btn-primary" style="width: 100%;">Add</button>
+        <br>
+      </form>
+      <br>
+      <h1>
+        All gadgets
+      </h1>
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col"> </th>
+            <th scope="col"> </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let gt of gadgetTypes">
+            <td>
+                <input type="text" [(ngModel)]="gt.name">
+            </td>
+            <td>
+            <td><button (click)="updateGadgetType(gt)" class="btn btn-info" style="width: 100%;">Edit</button></td>
+            <td><button (click)="delete(gt)" class="btn btn-danger" style="width: 100%;">Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

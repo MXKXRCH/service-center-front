@@ -1,0 +1,80 @@
+<div class="card my-5">
+    <div class="card-body">
+      <br>
+      <h1>
+        Add/Edit gadget
+      </h1>
+      <form>
+        <ul class="text-left list-inline py-3">
+            <li class="list-inline-item" style="width: 50%">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" class="form-control" [(ngModel)]="gadget.name">
+                </div>
+            </li>
+            <li class="list-inline-item" style="width: 49%">
+                <div class="form-group">
+                    <label>Experience</label>
+                    <input type="number" class="form-control" [(ngModel)]="gadget.guarantee">
+                </div>
+            </li>
+        </ul>
+        <button (click)="gadgetTypeList()" class="btn btn-outline-info" style="width: 100%;">Gadget types</button>
+        <br><br>
+        <div class="form-group" *ngIf="showGadgetTypes">
+            <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col"> </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let gt of gadgetTypes">
+                    <td>
+                        <input type="text" [(ngModel)]="gt.name">
+                    </td>
+                    <td><button (click)="setType(gt)" class="btn btn-outline-secondary" style="width: 100%;">Set</button></td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+        <div class="form-group" *ngIf="gadget.gadgetType">
+            <label>Gadget type: {{gadget.gadgetType.name}}</label>
+        </div>
+        <button (click)="addGadget()" class="btn btn-primary" style="width: 100%;">Submit</button>
+        <br><br>
+        <button (click)="clearForm()" class="btn btn-secondary" style="width: 100%;">Clear</button>
+      </form>
+      <br>
+      <h1>
+        All gadgets
+      </h1>
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Quarantee</th>
+            <th scope="col">Type</th>
+            <th scope="col"> </th>
+            <th scope="col"> </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let gd of gadgets">
+            <td>
+                <input type="text" [(ngModel)]="gd.name">
+            </td>
+            <td>
+                <input type="text" [(ngModel)]="gd.guarantee">
+            </td>
+            <td>
+                <input type="text" [(ngModel)]="gd.gadgetType.name">
+            </td>
+            <td><button (click)="editGadget(gd)" class="btn btn-info" style="width: 100%;">Edit</button></td>
+            <td><button (click)="delete(gd)" class="btn btn-danger" style="width: 100%;">Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>
