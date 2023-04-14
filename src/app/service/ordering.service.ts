@@ -23,7 +23,6 @@ export class OrderingService {
   }
 
   public post(ordering: Ordering) {
-    console.log(ordering);
     return this.http.post<Ordering>(this.url + '/' + ordering.employee.id + '/' + ordering.gadget.id, ordering);
   }
 
