@@ -9,13 +9,13 @@
             <li class="list-inline-item" style="width: 50%">
                 <div class="form-group">
                     <label>Name</label>
-                    <input type="text" class="form-control" [(ngModel)]="repair.name">
+                    <input type="text" class="form-control" [(ngModel)]="repair.name" name="name">
                 </div>
             </li>
             <li class="list-inline-item" style="width: 49%">
                 <div class="form-group">
                 <label>Price</label>
-                <input type="number" class="form-control" [(ngModel)]="repair.price">
+                <input type="number" class="form-control" [(ngModel)]="repair.price" name="price">
                 </div>
             </li>
         </ul>
@@ -38,10 +38,10 @@
         <tbody>
           <tr *ngFor="let rep of repairs">
             <td>
-                <input type="text" [(ngModel)]="rep.name">
+              <input type="text" [(ngModel)]="rep.name" name="rep-name">
             </td>
             <td>
-                <input type="text" [(ngModel)]="rep.price">
+              <input type="text" [(ngModel)]="rep.price" name="rep-price">
             </td>
             <td><button (click)="updateRepair(rep)" class="btn btn-info" style="width: 100%;">Edit</button></td>
             <td><button (click)="delete(rep)" class="btn btn-danger" style="width: 100%;">Delete</button></td>

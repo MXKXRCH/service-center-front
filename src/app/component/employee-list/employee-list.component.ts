@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { Employee } from 'src/app/model/employee';
 import { EmployeeService } from 'src/app/service/employee.service';
 
@@ -12,7 +11,7 @@ export class EmployeeListComponent {
   employees! : Employee[];
   employee! : Employee;
 
-  constructor(private service: EmployeeService, private router : Router) {
+  constructor(private service: EmployeeService) {
     this.clearForm();
   }
 
@@ -40,7 +39,7 @@ export class EmployeeListComponent {
     if (this.employee.salary === undefined || this.employee.salary <= 0) {
       alert("Salary is not available");
     }
-    this.service.post(this.employee).subscribe(() => this.router.navigate(['employees']));
+    this.service.post(this.employee).subscribe(() => window.location.reload());
   }
 
   delete(employee: Employee) {

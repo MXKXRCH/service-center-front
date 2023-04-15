@@ -7,7 +7,7 @@
       <form>
         <div class="form-group">
             <label>Name</label>
-            <input type="text" class="form-control" [(ngModel)]="gadgetType.name">
+            <input type="text" class="form-control" [(ngModel)]="gadgetType.name" name="name">
         </div>
         <button (click)="addGadgetType()" class="btn btn-primary" style="width: 100%;">Add</button>
         <br>
@@ -27,9 +27,8 @@
         <tbody>
           <tr *ngFor="let gt of gadgetTypes">
             <td>
-                <input type="text" [(ngModel)]="gt.name">
+                <input type="text" [(ngModel)]="gt.name" name="gadget name">
             </td>
-            <td>
             <td><button (click)="updateGadgetType(gt)" class="btn btn-info" style="width: 100%;">Edit</button></td>
             <td><button (click)="delete(gt)" class="btn btn-danger" style="width: 100%;">Delete</button></td>
           </tr>

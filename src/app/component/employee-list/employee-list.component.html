@@ -7,31 +7,31 @@
       <form>
         <div class="form-group">
             <label>Name</label>
-            <input type="text" class="form-control" [(ngModel)]="employee.name">
+            <input type="text" class="form-control" [(ngModel)]="employee.name" name="name">
         </div>
         <ul class="text-left list-inline py-3">
             <li class="list-inline-item" style="width: 49%">
                 <div class="form-group">
                     <label>Phone</label>
-                    <input type="number" class="form-control" [(ngModel)]="employee.phone">
+                    <input type="number" class="form-control" [(ngModel)]="employee.phone" name="phone">
                 </div>
             </li>
             <li class="list-inline-item" style="width: 49%">
                 <div class="form-group">
                 <label>Email address</label>
-                <input type="email" class="form-control" [(ngModel)]="employee.email">
+                <input type="email" class="form-control" [(ngModel)]="employee.email" name="email">
                 </div>
             </li>
             <li class="list-inline-item" style="width: 49%">
                 <div class="form-group">
                     <label>Experience</label>
-                    <input type="number" class="form-control" [(ngModel)]="employee.experience">
+                    <input type="number" class="form-control" [(ngModel)]="employee.experience" name="exp">
                 </div>
             </li>
             <li class="list-inline-item" style="width: 49%">
                 <div class="form-group">
                     <label>Salary</label>
-                    <input type="number" class="form-control" [(ngModel)]="employee.salary">
+                    <input type="number" class="form-control" [(ngModel)]="employee.salary" name="salary">
                   </div>
             </li>
         </ul>
@@ -56,13 +56,13 @@
         <tbody>
           <tr *ngFor="let emp of employees">
             <td>
-                <input type="text" [(ngModel)]="emp.name">
+              {{emp.name}}
             </td>
             <td>
-                <input type="text" [(ngModel)]="emp.phone">
+              {{emp.phone}}
             </td>
             <td>
-                <input type="text" [(ngModel)]="emp.email">
+              {{emp.email}}
             </td>
             <td><button (click)="editEmployee(emp)" class="btn btn-info" style="width: 100%;">Edit</button></td>
             <td><button (click)="delete(emp)" class="btn btn-danger" style="width: 100%;">Delete</button></td>

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Repair } from 'src/app/model/repair';
 import { RepairService } from 'src/app/service/repair.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-repair-list',
@@ -12,7 +11,7 @@ export class RepairListComponent {
   repairs! : Repair[];
   repair! : Repair;
 
-  constructor(private service: RepairService, private router : Router) {
+  constructor(private service: RepairService) {
     this.repair = new Repair();
   }
 
@@ -27,7 +26,7 @@ export class RepairListComponent {
     if (repair.price === undefined) {
       alert("Price is not available");
     }
-    this.service.post(repair).subscribe(() => this.router.navigate(['repairs']));
+    this.service.post(repair).subscribe(() => window.location.reload());
   }
 
   delete(repair: Repair) {

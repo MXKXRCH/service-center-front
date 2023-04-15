@@ -18,8 +18,8 @@ export class GadgetService {
     return this.http.get<Gadget[]>(this.url + "/all");
   }
 
-  public post(gadget: Gadget) {
-    return this.http.post<Gadget>(this.url, gadget);
+  public post(gadget: Gadget, typeId: number) {
+    return this.http.post<Gadget>(this.url + "/" + typeId, gadget);
   }
 
   public delete(id : number) {

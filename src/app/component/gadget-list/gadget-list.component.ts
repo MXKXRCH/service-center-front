@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Gadget } from 'src/app/model/gadget';
 import { GadgetService } from 'src/app/service/gadget.service';
-import { Router } from '@angular/router';
 import { GadgetType } from 'src/app/model/gadget-type';
 import { GadgetTypeService } from 'src/app/service/gadget-type.service';
 
@@ -17,8 +16,7 @@ export class GadgetListComponent {
   showGadgetTypes : boolean = false;
 
   constructor(
-    private service: GadgetService, 
-    private router : Router,
+    private service: GadgetService,
     private gadgetTypeService : GadgetTypeService
   ) {
     this.clearForm();
@@ -38,7 +36,8 @@ export class GadgetListComponent {
   }
 
   setType(gadgetType : GadgetType) {
-    this.gadget.gadgetType = gadgetType; 
+    this.gadget.gadgetType = gadgetType;
+    this.gadgetTypeList();
   }
 
   editGadget(gadget : Gadget) {
@@ -55,7 +54,7 @@ export class GadgetListComponent {
     if (this.gadget.gadgetType === null || this.gadget.gadgetType === undefined) {
       alert("Gadget type is not chosen");
     }
-    this.service.post(this.gadget).subscribe(() => this.router.navigate(['gadgets']));
+    this.service.post(this.gadget, this.gadget.gadgetType.id).subscribe(() => window.location.reload());
   }
 
   delete(gadget: Gadget) {

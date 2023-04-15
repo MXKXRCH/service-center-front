@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { GadgetType } from 'src/app/model/gadget-type';
 import { GadgetTypeService } from 'src/app/service/gadget-type.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-gadget-type-list',
@@ -12,7 +11,7 @@ export class GadgetTypeListComponent {
   gadgetTypes! : GadgetType[];
   gadgetType! : GadgetType;
 
-  constructor(private service: GadgetTypeService, private router : Router) {
+  constructor(private service: GadgetTypeService) {
     this.gadgetType = new GadgetType();
   }
 
@@ -22,9 +21,11 @@ export class GadgetTypeListComponent {
 
   updateGadgetType(gadgetType : GadgetType) {
     if (gadgetType.name === undefined || gadgetType.name.length < 4) {
+      console.log(gadgetType.name);
+      
       alert("Name is not available");
     }
-    this.service.post(gadgetType).subscribe(() => this.router.navigate(['gadgetTypes']));
+    this.service.post(gadgetType).subscribe(() => window.location.reload());
   }
 
   delete(gadgetType: GadgetType) {

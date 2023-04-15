@@ -9,17 +9,17 @@
             <li class="list-inline-item" style="width: 50%">
                 <div class="form-group">
                     <label>Name</label>
-                    <input type="text" class="form-control" [(ngModel)]="gadget.name">
+                    <input type="text" class="form-control" [(ngModel)]="gadget.name" name="g-name">
                 </div>
             </li>
             <li class="list-inline-item" style="width: 49%">
                 <div class="form-group">
-                    <label>Experience</label>
-                    <input type="number" class="form-control" [(ngModel)]="gadget.guarantee">
+                    <label>Guarantee</label>
+                    <input type="number" class="form-control" [(ngModel)]="gadget.guarantee" name="g-guarantee">
                 </div>
             </li>
         </ul>
-        <button (click)="gadgetTypeList()" class="btn btn-outline-info" style="width: 100%;">Gadget types</button>
+        <button (click)="gadgetTypeList()" class="btn btn-outline-secondary" style="width: 100%;">Show gadget types</button>
         <br><br>
         <div class="form-group" *ngIf="showGadgetTypes">
             <table class="table table-bordered table-striped">
@@ -32,7 +32,7 @@
                 <tbody>
                   <tr *ngFor="let gt of gadgetTypes">
                     <td>
-                        <input type="text" [(ngModel)]="gt.name">
+                        {{gt.name}}
                     </td>
                     <td><button (click)="setType(gt)" class="btn btn-outline-secondary" style="width: 100%;">Set</button></td>
                   </tr>
@@ -63,13 +63,13 @@
         <tbody>
           <tr *ngFor="let gd of gadgets">
             <td>
-                <input type="text" [(ngModel)]="gd.name">
+              {{gd.name}}
             </td>
             <td>
-                <input type="text" [(ngModel)]="gd.guarantee">
+              {{gd.guarantee}}
             </td>
             <td>
-                <input type="text" [(ngModel)]="gd.gadgetType.name">
+                {{gd.gadgetType.name}}
             </td>
             <td><button (click)="editGadget(gd)" class="btn btn-info" style="width: 100%;">Edit</button></td>
             <td><button (click)="delete(gd)" class="btn btn-danger" style="width: 100%;">Delete</button></td>
