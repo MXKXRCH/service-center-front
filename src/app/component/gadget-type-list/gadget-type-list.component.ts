@@ -21,9 +21,8 @@ export class GadgetTypeListComponent {
 
   updateGadgetType(gadgetType : GadgetType) {
     if (gadgetType.name === undefined || gadgetType.name.length < 4) {
-      console.log(gadgetType.name);
-      
       alert("Name is not available");
+      return;
     }
     this.service.post(gadgetType).subscribe(() => window.location.reload());
   }

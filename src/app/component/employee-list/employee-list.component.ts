@@ -26,18 +26,23 @@ export class EmployeeListComponent {
   addEmployee() {
     if (this.employee.name === undefined || this.employee.name.length < 4) {
       alert("Name is not available");
+      return;
     }
     if (this.employee.phone === undefined || this.employee.phone.length < 4) {
       alert("Phone is not available");
+      return;
     }
     if (this.employee.email === undefined || this.employee.email.length < 4) {
       alert("Email is not available");
+      return;
     }
     if (this.employee.experience === undefined || this.employee.experience <= 0) {
       alert("Experience is not available");
+      return;
     }
     if (this.employee.salary === undefined || this.employee.salary <= 0) {
       alert("Salary is not available");
+      return;
     }
     this.service.post(this.employee).subscribe(() => window.location.reload());
   }

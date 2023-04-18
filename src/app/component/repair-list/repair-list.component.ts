@@ -22,9 +22,11 @@ export class RepairListComponent {
   updateRepair(repair : Repair) {
     if (repair.name === undefined || repair.name.length < 4) {
       alert("Name is not available");
+      return;
     }
     if (repair.price === undefined) {
       alert("Price is not available");
+      return;
     }
     this.service.post(repair).subscribe(() => window.location.reload());
   }

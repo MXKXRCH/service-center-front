@@ -47,12 +47,15 @@ export class GadgetListComponent {
   addGadget() {
     if (this.gadget.name === undefined || this.gadget.name.length < 4) {
       alert("Name is not available");
+      return;
     }
     if (this.gadget.guarantee === undefined || this.gadget.guarantee <= 0) {
       alert("Guarantee is not available");
+      return;
     }
     if (this.gadget.gadgetType === null || this.gadget.gadgetType === undefined) {
       alert("Gadget type is not chosen");
+      return;
     }
     this.service.post(this.gadget, this.gadget.gadgetType.id).subscribe(() => window.location.reload());
   }
