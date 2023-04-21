@@ -21,6 +21,11 @@ export class EmployeeListComponent {
 
   editEmployee(employee : Employee) {
     this.employee = employee;
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
   }
 
   addEmployee() {
@@ -44,7 +49,15 @@ export class EmployeeListComponent {
       alert("Salary is not available");
       return;
     }
-    this.service.post(this.employee).subscribe(() => window.location.reload());
+    this.service.post(this.employee).subscribe(
+      data => {
+        if (data !== undefined && data !== null) {
+          window.location.reload();
+        } else {
+          alert("Can't add or change the employee\nMaybe because email or phone already registered");
+        }
+      }
+    );
   }
 
   delete(employee: Employee) {

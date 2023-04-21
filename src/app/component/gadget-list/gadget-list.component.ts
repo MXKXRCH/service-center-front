@@ -42,6 +42,11 @@ export class GadgetListComponent {
 
   editGadget(gadget : Gadget) {
     this.gadget = gadget;
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
   }
 
   addGadget() {
