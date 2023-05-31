@@ -1,4 +1,5 @@
 # ServiceCenterFront
+The frontend project for https://github.com/MXKXRCH/Service-Center
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
 
